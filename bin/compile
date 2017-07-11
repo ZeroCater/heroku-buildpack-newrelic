@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+### Configure directories
+
+CURRENT_DIR=$(dirname ${0:-})
+NOTIFICATION_SCRIPT="$CURRENT_DIR/notify.py"
+ENV_DIR=${3:-}
+
+### Notify New Relic about current deployment
+
+echo "-----> Executing NewRelic notificator"
+
+python $NOTIFICATION_SCRIPT
