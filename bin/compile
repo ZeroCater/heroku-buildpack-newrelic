@@ -3,6 +3,8 @@
 
 ### Configure directories
 
+set -x
+
 CURRENT_DIR=$(dirname ${0:-})
 NOTIFICATION_SCRIPT="$CURRENT_DIR/notify.py"
 ENV_DIR=${3:-}

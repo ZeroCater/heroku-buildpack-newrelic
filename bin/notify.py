@@ -2,6 +2,8 @@ import os
 import requests
 import subprocess
 
+print os.environ
+
 env_dir = os.environ['ENV_DIR']
 new_relic_api_key = os.popen('cat {}/NEW_RELIC_API_KEY'.format(env_dir)).read()
 new_relic_app_id = os.popen('cat {}/NEW_RELIC_APP_ID'.format(env_dir)).read()
