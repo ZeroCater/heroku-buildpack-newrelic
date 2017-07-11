@@ -1,8 +1,8 @@
 import os
 import requests
 import subprocess
+import traceback
 
-print os.environ
 
 env_dir = os.environ['ENV_DIR']
 new_relic_api_key = os.popen('cat {}/NEW_RELIC_API_KEY'.format(env_dir)).read()
@@ -27,4 +27,6 @@ print "-----> Notifying NewRelic about current deployment"
 try:
     r = requests.post(url, json=deployment_info, headers=newrelic_headers)
 except:
-    pass
+    exc = traceback.format_exc()
+    msg = "-----> Something failed when notifying NewRelic - Details:\n\t{}".format(exc)
+    print msg
