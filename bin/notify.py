@@ -23,10 +23,10 @@ deployment_info = {
 
 newrelic_headers = {'X-Api-Key': new_relic_api_key}
 
-print "-----> Notifying NewRelic about current deployment"
+print("-----> Notifying NewRelic about current deployment")
 try:
-    r = requests.post(url, json=deployment_info, headers=newrelic_headers)
+    requests.post(url, json=deployment_info, headers=newrelic_headers)
 except:
     exc = traceback.format_exc()
     msg = "-----> Something failed when notifying NewRelic - Details:\n\t{}".format(exc)
-    print msg
+    print(msg)
